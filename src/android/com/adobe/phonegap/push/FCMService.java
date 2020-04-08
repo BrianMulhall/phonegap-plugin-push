@@ -129,6 +129,13 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
     }
   }
 
+  @Overrride
+  public void onNewToken (String token){
+    Log.d(LOG_TAG, "FCM Token: " + token);
+  }
+
+
+
   /*
    * Change a values key in the extras bundle
    */
