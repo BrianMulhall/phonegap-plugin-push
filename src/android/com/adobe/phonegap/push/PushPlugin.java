@@ -13,11 +13,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
-// this is a deprecated package
-// TODO remove this
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
-
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.util.Log;
 

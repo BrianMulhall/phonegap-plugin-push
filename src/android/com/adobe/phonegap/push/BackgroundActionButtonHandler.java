@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 // this is a deprecated package
-import android.support.v4.app.RemoteInput;
+import androidx.core.app.RemoteInput;
 
 public class BackgroundActionButtonHandler extends BroadcastReceiver implements PushConstants {
     private static String LOG_TAG = "Push_BGActionButton";

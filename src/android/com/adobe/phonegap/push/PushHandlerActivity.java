@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 // this is a deprecated package
-import android.support.v4.app.RemoteInput;
+import androidx.core.app.RemoteInput;
 
 
 public class PushHandlerActivity extends Activity implements PushConstants {
