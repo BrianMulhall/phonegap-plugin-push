@@ -15,20 +15,14 @@
     "id": "phonegap-plugin-push",
     "platforms": [
       "ios",
-      "android",
-      "windows",
-      "browser"
+      "android"
     ]
   },
   "keywords": [
     "ecosystem:cordova",
     "ecosystem:phonegap",
     "cordova-ios",
-    "cordova-android",
-    "cordova-windows8",
-    "cordova-windows",
-    "cordova-wp8",
-    "cordova-browser"
+    "cordova-android"
   ],
   "engines": {
     "cordovaDependencies": {
@@ -61,6 +55,11 @@
         "cordova-ios": ">=4.5.0",
         "cordova-android": ">=7.1.0",
         "cordova": ">=7.1.0"
+      },
+      "3.0.0": {
+        "cordova-ios": ">=5.1.1",
+        "cordova-android": ">=8.1.0",
+        "cordova": ">=9.0.0"
       }
     }
   },
@@ -88,6 +87,6 @@
     "pluginpub": "^0.0.9"
   },
   "dependencies": {
-    "install": "^0.8.2"
+    "install": "^0.13.0"
   }
 }

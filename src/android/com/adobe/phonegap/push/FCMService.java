@@ -23,9 +23,13 @@ import android.graphics.Canvas;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+
+// this is a deprecated package
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.WearableExtender;
 import android.support.v4.app.RemoteInput;
+
+
 import android.text.Html;
 import android.text.Spanned;
 import android.util.Log;
