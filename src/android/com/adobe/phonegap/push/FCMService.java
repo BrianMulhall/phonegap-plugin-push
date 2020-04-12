@@ -23,24 +23,17 @@ import android.graphics.Canvas;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
-// this is a deprecated package
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationCompat.WearableExtender;
 import androidx.core.app.RemoteInput;
-
-
 import android.text.Html;
 import android.text.Spanned;
 import android.util.Log;
-
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -153,7 +146,7 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
     Log.d(LOG_TAG, "Pending Messages Have Been Deleted");
   }
 
-  
+
   /*
    * Change a values key in the extras bundle
    */

@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
-
-// this is a deprecated package
 import androidx.core.app.RemoteInput;
 
 
@@ -23,13 +21,13 @@ public class PushHandlerActivity extends Activity implements PushConstants {
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        FCMService gcm = new FCMService();
+        FCMService fcm = new FCMService();
 
         Intent intent = getIntent();
 
         int notId = intent.getExtras().getInt(NOT_ID, 0);
         Log.d(LOG_TAG, "not id = " + notId);
-        gcm.setNotification(notId, "");
+        fcm.setNotification(notId, "");
         super.onCreate(savedInstanceState);
         Log.v(LOG_TAG, "onCreate");
         String callback = getIntent().getExtras().getString("callback");
