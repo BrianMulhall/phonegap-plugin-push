@@ -26,6 +26,7 @@ import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.PluginResult;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -59,7 +60,7 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
     return this.cordova.getActivity().getApplicationContext();
   }
 
-  @TargetApi(26)
+  @TargetApi(29)
   private JSONArray listChannels() throws JSONException {
     JSONArray channels = new JSONArray();
     // only call on Android O and above
@@ -77,7 +78,7 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
     return channels;
   }
 
-  @TargetApi(26)
+  @TargetApi(29)
   private void deleteChannel(String channelId) {
     // only call on Android O and above
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -87,7 +88,7 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
     }
   }
 
-  @TargetApi(26)
+  @TargetApi(29)
   private void createChannel(JSONObject channel) throws JSONException {
     // only call on Android O and above
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -146,7 +147,7 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
     }
   }
 
-  @TargetApi(26)
+  @TargetApi(29)
   private void createDefaultNotificationChannelIfNeeded(JSONObject options) {
     String id;
     // only call on Android O and above
@@ -282,7 +283,8 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
           }
         }
       });
-    } else if (UNREGISTER.equals(action)) {
+    } 
+    else if (UNREGISTER.equals(action)) {
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
           try {
@@ -313,9 +315,11 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
           }
         }
       });
-    } else if (FINISH.equals(action)) {
+    } 
+    else if (FINISH.equals(action)) {
       callbackContext.success();
-    } else if (HAS_PERMISSION.equals(action)) {
+    } 
+    else if (HAS_PERMISSION.equals(action)) {
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
           JSONObject jo = new JSONObject();
@@ -333,7 +337,8 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
           }
         }
       });
-    } else if (SET_APPLICATION_ICON_BADGE_NUMBER.equals(action)) {
+    } 
+    else if (SET_APPLICATION_ICON_BADGE_NUMBER.equals(action)) {
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
           Log.v(LOG_TAG, "setApplicationIconBadgeNumber: data=" + data.toString());
@@ -345,14 +350,16 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
           callbackContext.success();
         }
       });
-    } else if (GET_APPLICATION_ICON_BADGE_NUMBER.equals(action)) {
+    } 
+    else if (GET_APPLICATION_ICON_BADGE_NUMBER.equals(action)) {
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
           Log.v(LOG_TAG, "getApplicationIconBadgeNumber");
           callbackContext.success(getApplicationIconBadgeNumber(getApplicationContext()));
         }
       });
-    } else if (CLEAR_ALL_NOTIFICATIONS.equals(action)) {
+    } 
+    else if (CLEAR_ALL_NOTIFICATIONS.equals(action)) {
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
           Log.v(LOG_TAG, "clearAllNotifications");
@@ -360,7 +367,8 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
           callbackContext.success();
         }
       });
-    } else if (SUBSCRIBE.equals(action)) {
+    } 
+    else if (SUBSCRIBE.equals(action)) {
       // Subscribing for a topic
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
@@ -373,7 +381,8 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
           }
         }
       });
-    } else if (UNSUBSCRIBE.equals(action)) {
+    } 
+    else if (UNSUBSCRIBE.equals(action)) {
       // un-subscribing for a topic
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
@@ -386,7 +395,8 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
           }
         }
       });
-    } else if (CREATE_CHANNEL.equals(action)) {
+    } 
+    else if (CREATE_CHANNEL.equals(action)) {
       // un-subscribing for a topic
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
@@ -399,7 +409,8 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
           }
         }
       });
-    } else if (DELETE_CHANNEL.equals(action)) {
+    } 
+    else if (DELETE_CHANNEL.equals(action)) {
       // un-subscribing for a topic
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
@@ -412,7 +423,8 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
           }
         }
       });
-    } else if (LIST_CHANNELS.equals(action)) {
+    } 
+    else if (LIST_CHANNELS.equals(action)) {
       // un-subscribing for a topic
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
@@ -423,7 +435,8 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
           }
         }
       });
-    } else if (CLEAR_NOTIFICATION.equals(action)) {
+    } 
+    else if (CLEAR_NOTIFICATION.equals(action)) {
       // clearing a single notification
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
@@ -437,7 +450,8 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
           }
         }
       });
-    } else {
+    } 
+    else {
       Log.e(LOG_TAG, "Invalid action : " + action);
       callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
       return false;

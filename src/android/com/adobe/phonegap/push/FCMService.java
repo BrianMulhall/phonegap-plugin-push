@@ -25,9 +25,9 @@ import android.os.Build;
 import android.os.Bundle;
 
 // this is a deprecated package
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationCompat.WearableExtender;
-import android.support.v4.app.RemoteInput;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationCompat.WearableExtender;
+import androidx.core.app.RemoteInput;
 
 
 import android.text.Html;
@@ -138,8 +138,22 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
     Log.d(LOG_TAG, "FCM Token: " + token);
   }
 
+  @Override
+  public void onMessageSent(String msgId) {
+    Log.d(LOG_TAG, "Upstream Message Sent Successfully: " + msgId);
+  }
 
+  @Override
+  public void onSendError(String msgId, Exception exception) {
+    Log.d(LOG_TAG, "Upstream Message Error: " + msgId);
+  }
 
+  @Override
+  public void onDeletedMessages() {
+    Log.d(LOG_TAG, "Pending Messages Have Been Deleted");
+  }
+
+  
   /*
    * Change a values key in the extras bundle
    */
@@ -950,8 +964,9 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
   }
 
   private boolean isAvailableSender(String from) {
-    SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(PushPlugin.COM_ADOBE_PHONEGAP_PUSH,
-        Context.MODE_PRIVATE);
+    
+    SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(PushPlugin.COM_ADOBE_PHONEGAP_PUSH, Context.MODE_PRIVATE);
+    
     String savedSenderID = sharedPref.getString(SENDER_ID, "");
 
     Log.d(LOG_TAG, "sender id = " + savedSenderID);

@@ -31,30 +31,29 @@
       <activity android:name="com.adobe.phonegap.push.PushHandlerActivity" android:exported="true" android:permission="${applicationId}.permission.PushHandlerActivity"/>
       <receiver android:name="com.adobe.phonegap.push.BackgroundActionButtonHandler"/>
       <receiver android:name="com.adobe.phonegap.push.PushDismissedHandler"/>
-      <service android:name="com.adobe.phonegap.push.FCMService">
+      <service android:name="com.adobe.phonegap.push.FCMService" android:exported="false">
         <intent-filter>
           <action android:name="com.google.firebase.MESSAGING_EVENT"/>
         </intent-filter>
       </service>
-      <service android:name="com.adobe.phonegap.push.PushInstanceIDListenerService">
-        <intent-filter>
-          <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-        </intent-filter>
-      </service>
     </config-file>
+    <!-- setting parameters-->
     <preference name="ANDROID_APPCOMPAT_LIBRARY_V7_VERSION" default="1.1.0"/>
-    <preference name="FCM_VERSION" default="20.1.+"/>
+    <preference name="FCM_VERSION" default="20.1.5"/>
+    <!-- package dependency-->
     <framework src="androidx.appcompat:appcompat:ANDROID_APPCOMPAT_LIBRARY_V7_VERSION" />
     <framework src="me.leolin:ShortcutBadger:1.1.22@aar"/>
     <framework src="com.google.firebase:firebase-messaging:$FCM_VERSION"/>
+    <!-- plugin dependencies-->
     <dependency id="cordova-support-google-services" version="~1.4.0"/>
     <dependency id="phonegap-plugin-multidex" version="~1.0.0"/>
-    <source-file src="src/android/com/adobe/phonegap/push/FCMService.java" target-dir="src/com/adobe/phonegap/push/"/>
-    <source-file src="src/android/com/adobe/phonegap/push/PushConstants.java" target-dir="src/com/adobe/phonegap/push/"/>
-    <source-file src="src/android/com/adobe/phonegap/push/PushHandlerActivity.java" target-dir="src/com/adobe/phonegap/push/"/>
-    <source-file src="src/android/com/adobe/phonegap/push/PushPlugin.java" target-dir="src/com/adobe/phonegap/push/"/>
+    <!-- source files-->
+    <source-file src="src/android/com/adobe/phonegap/push/FCMService.java"                    target-dir="src/com/adobe/phonegap/push/"/>
+    <source-file src="src/android/com/adobe/phonegap/push/PushConstants.java"                 target-dir="src/com/adobe/phonegap/push/"/>
+    <source-file src="src/android/com/adobe/phonegap/push/PushHandlerActivity.java"           target-dir="src/com/adobe/phonegap/push/"/>
+    <source-file src="src/android/com/adobe/phonegap/push/PushPlugin.java"                    target-dir="src/com/adobe/phonegap/push/"/>
     <source-file src="src/android/com/adobe/phonegap/push/BackgroundActionButtonHandler.java" target-dir="src/com/adobe/phonegap/push/"/>
-    <source-file src="src/android/com/adobe/phonegap/push/PushDismissedHandler.java" target-dir="src/com/adobe/phonegap/push/"/>
+    <source-file src="src/android/com/adobe/phonegap/push/PushDismissedHandler.java"          target-dir="src/com/adobe/phonegap/push/"/>
   </platform>
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
