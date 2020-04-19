@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
-import androidx.core.app.RemoteInput;
+import android.support.v4.app.RemoteInput;
 
 
 public class PushHandlerActivity extends Activity implements PushConstants {
@@ -26,7 +26,7 @@ public class PushHandlerActivity extends Activity implements PushConstants {
         Intent intent = getIntent();
 
         int notId = intent.getExtras().getInt(NOT_ID, 0);
-        Log.d(LOG_TAG, "not id = " + notId);
+        Log.d(LOG_TAG, "Notification ID = " + notId);
         fcm.setNotification(notId, "");
         super.onCreate(savedInstanceState);
         Log.v(LOG_TAG, "onCreate");

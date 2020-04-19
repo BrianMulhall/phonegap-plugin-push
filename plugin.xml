@@ -41,11 +41,11 @@
       </service>
     </config-file>
     <!-- setting parameters-->
-    <preference name="ANDROID_APPCOMPAT_LIBRARY_V7_VERSION" default="1.1.0"/>
+    <preference name="ANDROID_SUPPORT_V13_VERSION" default="28.+"/>
     <preference name="FCM_VERSION" default="20.1.5"/>
     <!-- package dependency-->
-    <framework src="androidx.appcompat:appcompat:ANDROID_APPCOMPAT_LIBRARY_V7_VERSION" />
-    <framework src="me.leolin:ShortcutBadger:1.1.22@aar"/>
+    <framework src="com.android.support:support-v13:$ANDROID_SUPPORT_V13_VERSION"/>
+    <framework src="me.leolin:ShortcutBadger:1.1.23@aar"/>
     <framework src="com.google.firebase:firebase-messaging:$FCM_VERSION"/>
     <!-- plugin dependencies-->
     <dependency id="cordova-support-google-services" version="~1.4.0"/>

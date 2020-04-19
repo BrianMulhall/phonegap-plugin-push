@@ -13,8 +13,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 
 import android.util.Log;
 
@@ -527,8 +527,7 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
     super.onPause(multitasking);
     gForeground = false;
 
-    SharedPreferences prefs = getApplicationContext().getSharedPreferences(COM_ADOBE_PHONEGAP_PUSH,
-        Context.MODE_PRIVATE);
+    SharedPreferences prefs = getApplicationContext().getSharedPreferences(COM_ADOBE_PHONEGAP_PUSH, Context.MODE_PRIVATE);
     if (prefs.getBoolean(CLEAR_NOTIFICATIONS, true)) {
       clearAllNotifications();
     }
